@@ -41,6 +41,8 @@ _start:
   mov rax, x
   call trimNewline
   
+  call printNl
+  
   mov rsi, x 
   call checkInt
   
@@ -49,6 +51,7 @@ _start:
   call atoi
   mov r12, rax    ; Store first number in r12
 
+  
   ; Second number
   mov rax, msg_num2
   mov rdi, msg_num2_len
@@ -60,6 +63,8 @@ _start:
   mov rdi, rax
   mov rax, y
   call trimNewline
+  
+  call printNl
   
   mov rsi, y
   call checkInt
@@ -80,6 +85,8 @@ _start:
   mov rdi, rax
   mov rax, oper
   call trimNewline
+  
+  call printNl
 
   call isValidOper
   cmp rax, 0
@@ -88,6 +95,12 @@ _start:
   call calculate
 
   jmp sys_exit
+
+printNl:
+  mov rax, newline
+  mov rdi, 1
+  call print
+  ret
 
 ; rax=buffer, rdi=bytes_read
 trimNewline:
