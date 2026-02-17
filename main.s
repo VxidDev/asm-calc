@@ -319,13 +319,13 @@ do_subtract:
 
 do_divide:
   mov rax, r12
-  xor rdx, rdx        ; Clear rdx for division [web:14][web:17]
+  xor rdx, rdx        ; Clear rdx for division 
   div r13             ; Unsigned division: rax / r13
   jmp printOutput
 
 do_multiply:
   mov rax, r12
-  imul rax, r13       ; Signed multiplication [web:18]
+  imul rax, r13       ; Signed multiplication 
   jmp printOutput
 
 printOutput:
